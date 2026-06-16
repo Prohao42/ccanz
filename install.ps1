@@ -9,6 +9,11 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
+# 强制启用 TLS 1.2，解决 claude.ai 连接失败问题
+if (-not [Net.ServicePointManager]::SecurityProtocol.HasFlag([Net.SecurityProtocolType]::Tls12)) {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+}
+
 $ESC = [char]27
 function Color  { param($c,$t) "$ESC[$c" + 'm' + "$t$ESC[0m" }
 function Info   { Write-Host ("  " + (Color 36 'INFO') + "  ") -NoNewline; Write-Host $args }
