@@ -1,15 +1,17 @@
 # Claude Code 一键安装脚本
 
-全中文交互，跨平台，零依赖，支持模型配置。
+全中文交互 · 跨平台 · 零依赖 · 支持模型配置
 
 ## 一句话安装
 
-```bash
+```powershell
 # Windows PowerShell
-irm https://claude.ai/install.ps1 | iex
+irm https://raw.githubusercontent.com/Prohao42/ccanz/main/install.ps1 | iex
+```
 
+```bash
 # macOS / Linux / WSL
-curl -fsSL https://claude.ai/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Prohao42/ccanz/main/install.sh | bash
 ```
 
 ## 特性
@@ -18,9 +20,8 @@ curl -fsSL https://claude.ai/install.sh | bash
 - **跨平台** — Windows / macOS / Linux / WSL 自适应
 - **官方原生安装** — 无需 Node.js，后台自动更新
 - **模型配置** — 安装时可选 Sonnet 4 / Opus 4 / 自定义模型
-- **双重安装方式** — 原生安装（推荐）或 npm 安装
 - **认证引导** — 浏览器 OAuth / API Key 自动配置
-- **安装验证** — 自动检查 `claude` 命令可用性
+- **管道安全** — 支持 `irm | iex` 和 `curl | bash` 远程执行
 
 ## 前置要求
 
@@ -29,24 +30,29 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 ## 使用方式
 
+### 远程一行命令
+
+```powershell
+# Windows
+irm https://raw.githubusercontent.com/Prohao42/ccanz/main/install.ps1 | iex
+```
+
+```bash
+# macOS / Linux / WSL
+curl -fsSL https://raw.githubusercontent.com/Prohao42/ccanz/main/install.sh | bash
+```
+
 ### 本地运行
 
 ```bash
+git clone https://github.com/Prohao42/ccanz.git
+cd ccanz
+
 # Windows
 .\install.ps1
 
 # macOS / Linux / WSL
 bash install.sh
-```
-
-### 远程管道运行（一条命令）
-
-```bash
-# Windows PowerShell
-irm https://claude.ai/install.ps1 | iex
-
-# macOS / Linux / WSL
-curl -fsSL https://claude.ai/install.sh | bash
 ```
 
 ## 安装流程
@@ -56,7 +62,7 @@ curl -fsSL https://claude.ai/install.sh | bash
  ├─ 系统平台检测
  ├─ 选择安装方式（原生 / npm）
  ├─ 配置模型（可选）
- ├─ 自动安装
+ ├─ 自动安装（官方安装器）
  ├─ 验证安装 (claude --version)
  ├─ 账号认证（可选）
  └─ 完成 ✓
@@ -73,7 +79,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 | 3 | Claude Sonnet 3.5 | 成熟稳定版 |
 | 4 | 自定义 | 手动输入模型名称 |
 
-模型配置保存在 `~/.claude/.env` 文件中。
+模型配置保存在 `~/.claude/.env` 文件中，也可后续手动编辑。
 
 ## 安装后
 
