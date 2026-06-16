@@ -1,10 +1,6 @@
-﻿<#
-.SYNOPSIS
-    Claude Code 一键安装脚本
-.DESCRIPTION
-    全中文交互，自动检测平台，支持模型配置。
-    支持 Windows / macOS / Linux / WSL。
-#>
+# Claude Code 一键安装脚本 - 全中文交互，跨平台，支持模型配置
+# 使用方式: irm https://raw.githubusercontent.com/Prohao42/ccanz/main/install.ps1 | iex
+# 或本地: .\install.ps1
 
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
